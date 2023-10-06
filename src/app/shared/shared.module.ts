@@ -1,10 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { register } from 'swiper/element/bundle'
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RouterModule } from '@angular/router';
 import { CarouselComponent } from './components/carousel/carousel.component';
 
 
@@ -19,8 +20,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 })
 export class SharedModule {
 
-  constructor(){
+  constructor() {
     register();
   }
-  
- }
+
+}

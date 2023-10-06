@@ -22,27 +22,71 @@
 
             <!--Search-->
             <div class="flex justify-center items-center grow">
-                <button class="btn btn-link" onclick="my_modal_4.showModal()">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </button>
+                <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost m-1">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box ">
+                        <ul class="menu h-[400px]  min-w-max lg:menu-horizontal lg:h-auto rounded-box">
+                            <li>
+                                <a><strong>Solutions</strong></a>
+                                <ul>
+                                    <li><a>Design</a></li>
+                                    <li><a>Development</a></li>
+                                    <li><a>Hosting</a></li>
+                                    <li><a>Domain register</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Enterprise</a>
+                                <ul>
+                                    <li><a>CRM software</a></li>
+                                    <li><a>Marketing management</a></li>
+                                    <li><a>Security</a></li>
+                                    <li><a>Consulting</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Products</a>
+                                <ul>
+                                    <li><a>UI Kit</a></li>
+                                    <li><a>Wordpress themes</a></li>
+                                    <li><a>Wordpress plugins</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Company</a>
+                                <ul>
+                                    <li><a>About us</a></li>
+                                    <li><a>Contact us</a></li>
+                                    <li><a>Privacy policy</a></li>
+                                    <li><a>Press kit</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+
                 <div class="flex items-center w-full max-w-xl relative">
                     <input type="text" placeholder="Search..." class="input input-sm w-full p-5 bg-base-200" />
                     <svg class="w-5 h-5 absolute right-4" viewBox="0 0 32 32" version="1.1"
@@ -131,18 +175,4 @@
         </div>
     </div>
     <app-carousel [elements]="categories" [numSlides]="5"></app-carousel>
-
-    <!--Categories Modal-->
-    <dialog id="my_modal_4" class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
-            <h3 class="font-bold text-lg">Categories</h3>
-            <p class="py-4">Click the button below to close</p>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button, it will close the modal -->
-                    <button class="btn">Close</button>
-                </form>
-            </div>
-        </div>
-    </dialog>
 </div>

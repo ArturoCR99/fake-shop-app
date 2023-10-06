@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { HeaderService } from '../../services/header.service';
-import Swiper from 'swiper';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-header',
@@ -10,18 +9,19 @@ import Swiper from 'swiper';
 export class HeaderComponent {
 
   //Services
-  private _headerService = inject(HeaderService);
+  private _categoriesService = inject(CategoriesService);
 
   //Props
   public categories: [] = [];
 
   constructor() {
 
-    this._headerService.getAllCategories().subscribe({
+    this._categoriesService.getAllSubCategories().subscribe({
       next: (res) => this.categories = res,
-      error: (err) => console.error(err),
-      complete: () => console.log(this.categories)
+      error: (err) => console.error(err)
     });
+
+    this._categoriesService.sortCategories().subscribe();
 
   }
 }

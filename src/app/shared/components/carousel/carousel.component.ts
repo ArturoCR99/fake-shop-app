@@ -14,13 +14,16 @@ export class CarouselComponent implements AfterViewInit {
   @Input() numSlides: number = 1;
   @ViewChild('swiperContainer') swiperEl!: ElementRef<any>;
 
-  constructor() { }
+  constructor() {}
 
   ngAfterViewInit() {
 
     const swiperParams = {
       slidesPerView: this.numSlides,
-      grabCursor: true
+      grabCursor: true,
+      mousewheel: {
+        invert: true
+      }
     };
 
     Object.assign(this.swiperEl.nativeElement, swiperParams);
