@@ -1,27 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CategoriesService } from '../../services/categories.service';
+import { Category } from '../../interfaces/category';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  //Services
   private _categoriesService = inject(CategoriesService);
+  public headerCategories: Category[] = [];
 
-  //Props
-  public categories: [] = [];
+  constructor() { }
 
-  constructor() {
-
-    this._categoriesService.getAllSubCategories().subscribe({
-      next: (res) => this.categories = res,
-      error: (err) => console.error(err)
-    });
-
-    this._categoriesService.sortCategories().subscribe();
-
+  ngOnInit(): void {
+    this._categoriesService.getAllCategories().subscribe((res) => this.headerCategories = res);
   }
+
 }

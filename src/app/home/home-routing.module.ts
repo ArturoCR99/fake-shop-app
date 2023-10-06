@@ -6,8 +6,7 @@ const routes: Routes = [
 {
   path: '',
   children: [
-    {path: 'home', component: HomeComponent},
-    {path: '**', redirectTo: 'home'}
+    {path: '', component: HomeComponent},
   ]
 }
 ];

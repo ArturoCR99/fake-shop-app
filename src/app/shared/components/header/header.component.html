@@ -5,7 +5,7 @@
             <!--Logo-->
             <div>
                 <div class="flex items-center">
-                    <a class="btn btn-ghost normal-case text-xl">
+                    <a class="btn btn-ghost normal-case text-xl" routerLink="">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -47,40 +47,14 @@
                         </svg>
                     </label>
                     <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box ">
-                        <ul class="menu h-[400px]  min-w-max lg:menu-horizontal lg:h-auto rounded-box">
-                            <li>
-                                <a><strong>Solutions</strong></a>
+                        <ul class="menu h-[400px] min-w-max rounded-box">
+                            <li *ngFor="let c of headerCategories">
+                                <a routerLink="/products/category/{{c.category}}/all"><strong>{{c.category |
+                                        titlecase}}</strong></a>
                                 <ul>
-                                    <li><a>Design</a></li>
-                                    <li><a>Development</a></li>
-                                    <li><a>Hosting</a></li>
-                                    <li><a>Domain register</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>Enterprise</a>
-                                <ul>
-                                    <li><a>CRM software</a></li>
-                                    <li><a>Marketing management</a></li>
-                                    <li><a>Security</a></li>
-                                    <li><a>Consulting</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>Products</a>
-                                <ul>
-                                    <li><a>UI Kit</a></li>
-                                    <li><a>Wordpress themes</a></li>
-                                    <li><a>Wordpress plugins</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>Company</a>
-                                <ul>
-                                    <li><a>About us</a></li>
-                                    <li><a>Contact us</a></li>
-                                    <li><a>Privacy policy</a></li>
-                                    <li><a>Press kit</a></li>
+                                    <li *ngFor="let s of c.subCategories">
+                                        <a routerLink="/products/category/{{c.category}}/{{s}}">{{s | titlecase}}</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -114,7 +88,6 @@
 
             <!--User Menu-->
             <div class="flex">
-
                 <div>
                     <div class="dropdown dropdown-end">
                         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -169,10 +142,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
     </div>
-    <app-carousel [elements]="categories" [numSlides]="5"></app-carousel>
+
+    <!--Carousel-->
+    <swiper-container slides-per-view="5" grab-cursor="true" class="bg-white">
+        <swiper-slide class="flex justify-center items-center py-2" *ngFor="let item of headerCategories">
+            <a routerLink="/products/category/{{item.category}}/all">{{item.category | titlecase}}</a>
+        </swiper-slide>
+    </swiper-container>
 </div>
