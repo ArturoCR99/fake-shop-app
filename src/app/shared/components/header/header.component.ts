@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { HeaderService } from '../../services/header.service';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent {
   //Props
   public categories: [] = [];
 
-  constructor(){
+  constructor() {
 
     this._headerService.getAllCategories().subscribe({
       next: (res) => this.categories = res,
