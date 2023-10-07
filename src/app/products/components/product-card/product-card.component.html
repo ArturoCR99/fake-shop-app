@@ -1,1 +1,13 @@
-<p>product-card works!</p>
+<div class="card w-full bg-base-100 shadow-xl mx-auto">
+    <figure><img [src]="product.images[0]" class="w-full h-48 object-cover object-top" [alt]="product.title" /></figure>
+    <div class="card-body">
+        <h2 class="card-title">
+            {{product.title}}
+        </h2>
+        <p>{{product.brand}}</p>
+        <div class="flex card-actions items-center justify-end">
+            <div class="">{{product.price | currency}}</div>
+            <div class="badge badge-primary">-{{product.discountPercentage}}</div>
+        </div>
+    </div>
+</div>
