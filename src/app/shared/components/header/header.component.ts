@@ -11,12 +11,14 @@ import { map } from 'rxjs';
 export class HeaderComponent implements OnInit {
 
   private _categoriesService = inject(CategoriesService);
-  public headerCategories: Category[] = [];
+
+  public categories: Category[] = [];
+  public subCategories: string[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this._categoriesService.getAllCategories().subscribe((res) => this.headerCategories = res);
+    this._categoriesService.getAllCategories().subscribe((res: Category[]) => this.categories = res);
   }
 
 }

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { DetailComponent } from './pages/detail/detail.component';
-import { CategoryComponent } from './pages/category/category.component';
+import { ListComponent } from './pages/list/list.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 @NgModule({
   declarations: [
-    CategoryComponent,
     DetailComponent,
+    ListComponent,
+    ProductCardComponent,
   ],
   imports: [
     CommonModule,

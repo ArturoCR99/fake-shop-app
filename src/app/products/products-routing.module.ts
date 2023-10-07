@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryComponent } from './pages/category/category.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { ListComponent } from './pages/list/list.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      {path: 'category/:category/:subcategory', component: CategoryComponent},
+      {path: 'list/:category/:subcategory', component: ListComponent},
       {path: 'detail', component: DetailComponent},
     ]
   }
