@@ -1,7 +1,7 @@
 <div class="flex items-center relative">
-    <input type="text" placeholder="Search..." [spellcheck]="false" #searchInput (keyup)="search(searchInput.value)"
+    <input type="text" placeholder="Search..." [spellcheck]="false" #searchInput (keyup)="onSearch(searchInput.value)"
         class="input input-sm w-full p-5 bg-base-200" />
-    <button class="btn btn-circle btn-sm btn-ghost absolute right-1">
+    <button (click)="search(searchInput.value)" class="btn btn-circle btn-sm btn-ghost absolute right-1">
         <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round"

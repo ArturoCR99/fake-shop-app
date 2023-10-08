@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { SearchService } from '../../services/search.service';
+import { SearchService } from '../../../../services/search.service';
 import { Observable, Subscription, finalize, map } from 'rxjs';
 import { Product } from 'src/app/products/interfaces/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,6 +11,7 @@ import { Product } from 'src/app/products/interfaces/product';
 })
 export class SearchComponent {
 
+  private router = inject(Router);
   private _searchService = inject(SearchService);
   public isLoading = false;
   public results$!: Observable<Product[]>;
@@ -17,7 +19,7 @@ export class SearchComponent {
 
   constructor() { }
 
-  search(value: string) {
+  onSearch(value: string) {
 
     this.isLoading = true;
 
@@ -27,5 +29,14 @@ export class SearchComponent {
       ));
   }
 
-  search
+  search(value: string) {
+
+    if (value.trim() == "") {
+      return;
+    }
+    this.router.navigateByUrl('/products/category/search/' + value).then(() => {
+      window.location.reload();
+    });
+
+  }
 }

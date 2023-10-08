@@ -14,27 +14,34 @@ export class ProductListComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
 
-  cat: string = "";
-  products: Product[] = [];
-  results: number = 0;
-  page: number = 1;
-  sort: string = "";
-  isLoading = false;
+  public cat: string = "";
+  public subCat: string = "";
+  public products: Product[] = [];
+  public results: number = 0;
+  public page: number = 1;
+  public sort: string = "";
+  public isLoading = false;
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      this.cat = param.get('subcat')!
-      this.getProducts();
+      this.cat = param.get('cat')!;
+      this.subCat = param.get('subcat')!
+
+      if (this.cat == "search") {
+        return this.getProductsSearch(this.subCat);
+      }
+
+      this.getProductsCategory(this.subCat);
       this.page = 1;
     });
   }
 
-  getProducts() {
+  getProductsCategory(value: string) {
     this.isLoading = true;
-    this.productsService.getProducts(this.cat).pipe(
+    this.productsService.getProducts(value).pipe(
       finalize(() => { this.isLoading = false }
       )).subscribe((e) => {
         this.products = e.products;
@@ -42,7 +49,17 @@ export class ProductListComponent implements OnInit {
       })
   }
 
-  sortChange(sort: Event) {
+  getProductsSearch(value: string) {
+    this.isLoading = true;
+    this.productsService.getSearchProducts(value).pipe(
+      finalize(() => { this.isLoading = false }
+      )).subscribe((e) => {
+        this.products = e.products;
+        this.results = e.total;
+      })
+  }
+
+  onSort(sort: Event) {
     this.sort = (sort.target as HTMLInputElement).value;
   }
 

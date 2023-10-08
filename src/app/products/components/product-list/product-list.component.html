@@ -6,7 +6,7 @@
             </div>
             <div class="flex items-center">
                 <label class="font-medium mx-3" for="select">Sort</label>
-                <select  (change)="sortChange($event)" class="select select-sm w-full max-w-xs" >
+                <select  (change)="onSort($event)" class="select select-sm w-full max-w-xs" >
                     <option selected>Default</option>
                     <option>highest price</option>
                     <option>lowest price</option>
@@ -15,9 +15,11 @@
         </div>
     </div>
     <div>
-        <div class=" grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
-            <span class="loading loading-spinner loading-lg mx-auto col-span-3" *ngIf="isLoading"></span>
-            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 3, currentPage: page }" [product]="p">
+        <div class="grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
+            <div class="flex justify-center items-center col-span-3 h-[200px]" *ngIf="isLoading">            
+                <span class="loading loading-spinner loading-lg"></span>
+            </div>
+            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 5, currentPage: page }" [product]="p">
             </app-product-card>
         </div>
         <div class="flex justify-end">

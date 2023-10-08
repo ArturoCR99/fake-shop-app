@@ -16,4 +16,8 @@ export class ProductsService {
   getProducts(category: string): Observable<Results>{
     return this._http.get<Results>(`https://dummyjson.com/products/category/${category}`);
   }
+
+  getSearchProducts(q: string): Observable<Results> {
+    return this._http.get<Results>(`https://dummyjson.com/products/search?q=${q}&limit=100`);
+  }
 }

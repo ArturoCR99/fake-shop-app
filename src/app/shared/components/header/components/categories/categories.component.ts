@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Category } from '../../../../interfaces/category';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -8,8 +9,16 @@ import { Category } from '../../../../interfaces/category';
 })
 export class CategoriesComponent {
 
+  private router = inject(Router);
   @Input('categories') categories!: Category[];
   @Input('subCategories') subCategories!: string[];
 
-  constructor(){}
+  constructor() { }
+
+  navigate(cat: string, subCat: string) {
+    this.router.navigateByUrl(`/products/category/${cat}/${subCat}`).then(() => {
+      window.location.reload()
+    }
+    )
+  }
 }
