@@ -1,0 +1,21 @@
+<div class="dropdown">
+    <label tabindex="0" class="btn btn-sm btn-ghost mr-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
+        </svg>
+    </label>
+    <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box ">
+        <ul class="menu h-[400px] min-w-max rounded-box">
+            <li *ngFor="let c of categories">
+                <span class="font-bold btn-disabled">{{c.category | titlecase}}</span>
+                <ul>
+                    <li *ngFor="let s of c.subCategories">
+                        <a routerLink="/products/category/{{c.category}}/{{s}}">{{s | titlecase}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </ul>
+</div>

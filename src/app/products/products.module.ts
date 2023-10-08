@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
@@ -8,6 +8,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { CategoryTitleComponent } from './components/category-title/category-title.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 @NgModule({
@@ -17,12 +18,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CategoryComponent,
     CategoryTitleComponent,
     ProductListComponent,
+    SortPipe,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     NgxPaginationModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class ProductsModule { }

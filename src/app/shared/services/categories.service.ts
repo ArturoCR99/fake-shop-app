@@ -12,7 +12,7 @@ export class CategoriesService {
     {
       category: "mens",
       image: "",
-      subCategories: ["mens-shirts", "men-shoes", "men-watches"]
+      subCategories: ["mens-shirts", "mens-shoes", "mens-watches"]
     },
     {
       category: "womens",
@@ -37,7 +37,7 @@ export class CategoriesService {
     {
       category: "selfCare",
       image: "",
-      subCategories: ["skin-care", "fragrances"]
+      subCategories: ["skincare", "fragrances"]
     },
     {
       category: "food",
