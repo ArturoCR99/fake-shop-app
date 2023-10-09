@@ -15,6 +15,7 @@ export class SearchComponent {
   private _searchService = inject(SearchService);
   public isLoading = false;
   public results$!: Observable<Product[]>;
+  public showBox: boolean = false;
 
 
   constructor() { }
@@ -22,11 +23,18 @@ export class SearchComponent {
   onSearch(value: string) {
 
     this.isLoading = true;
+    this.showBox = true;
+
+    if (value.trim() == '') {
+      this.showBox = false;
+    }
+
 
     this.results$ = this._searchService.getSearchResults(value, "10").pipe(
       map((e) => { return e.products }),
       finalize(() => this.isLoading = false
       ));
+
   }
 
   search(value: string) {
@@ -38,5 +46,9 @@ export class SearchComponent {
       window.location.reload();
     });
 
+  }
+
+  onClickedOutside(e: Event) {
+    this.showBox = false;
   }
 }

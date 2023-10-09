@@ -1,3 +1,4 @@
+<!--Input search-->
 <div class="flex items-center relative">
     <input type="text" placeholder="Search..." [spellcheck]="false" #searchInput (keyup)="onSearch(searchInput.value)"
         class="input input-sm w-full p-5 bg-base-200" />
@@ -10,8 +11,8 @@
     </button>
 </div>
 
-<!--Results-->
-<div *ngIf="searchInput.value !== ''" class="absolute top-[4rem] w-full max-w-xl">
+<!--Search results-->
+<div *ngIf="showBox" class="absolute top-[4rem] w-full max-w-xl" (clickOutside)="onClickedOutside($event)">
     <ul class="menu menu-md bg-base-200 rounded-box">
         <li class="menu-title">Results for {{searchInput.value}}</li>
         <li *ngFor="let r of results$ | async">

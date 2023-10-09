@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, delay, map } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { Results } from '../interfaces/results';
 
@@ -13,11 +13,16 @@ export class ProductsService {
 
   constructor() { }
 
+  getProductById(){
+    
+  }
+
   getProducts(category: string): Observable<Results>{
-    return this._http.get<Results>(`https://dummyjson.com/products/category/${category}`);
+    return this._http.get<Results>(`https://dummyjson.com/products/category/${category}`).pipe(delay(500));
   }
 
   getSearchProducts(q: string): Observable<Results> {
-    return this._http.get<Results>(`https://dummyjson.com/products/search?q=${q}&limit=100`);
+    return this._http.get<Results>(`https://dummyjson.com/products/search?q=${q}&limit=100`).pipe(delay(500));
   }
+
 }

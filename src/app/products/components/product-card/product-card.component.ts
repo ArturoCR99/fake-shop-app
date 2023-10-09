@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, inject } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -8,6 +9,13 @@ import { Product } from '../../interfaces/product';
 })
 export class ProductCardComponent{
 
+  private router = inject(Router);
   @Input('product') product!: Product;
+
+  constructor(){}
+
+  navigate(value: number){
+    this.router.navigateByUrl("/products/detail/" + value)
+  }
   
 }

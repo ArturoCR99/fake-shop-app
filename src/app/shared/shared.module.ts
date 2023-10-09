@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { register } from 'swiper/element/bundle'
 
@@ -16,7 +17,8 @@ import { LogoComponent } from './components/header/components/logo/logo.componen
   declarations: [HeaderComponent, FooterComponent, SearchComponent, CategoriesComponent, UserComponent, CartComponent, LogoComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ClickOutsideModule
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -1,4 +1,6 @@
 <div class="w-full pb-32">
+
+    <!--Results count and Sort-->
     <div class="mb-5">
         <div class="flex items-center justify-between w-full">
             <div>
@@ -6,7 +8,7 @@
             </div>
             <div class="flex items-center">
                 <label class="font-medium mx-3" for="select">Sort</label>
-                <select  (change)="onSort($event)" class="select select-sm w-full max-w-xs" >
+                <select (change)="onSort($event)" class="select select-sm w-full max-w-xs">
                     <option selected>Default</option>
                     <option>highest price</option>
                     <option>lowest price</option>
@@ -14,16 +16,20 @@
             </div>
         </div>
     </div>
+
+    <!--List-->
     <div>
         <div class="grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
-            <div class="flex justify-center items-center col-span-3 h-[200px]" *ngIf="isLoading">            
+            <div class="flex justify-center items-center col-span-3 h-[200px]" *ngIf="isLoading">
                 <span class="loading loading-spinner loading-lg"></span>
             </div>
-            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 5, currentPage: page }" [product]="p">
+            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 5, currentPage: page }"
+                [product]="p">
             </app-product-card>
         </div>
         <div class="flex justify-end">
             <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
     </div>
+    
 </div>
