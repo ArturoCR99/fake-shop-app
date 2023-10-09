@@ -1,5 +1,5 @@
 <!--Input search-->
-<div class="flex items-center relative">
+<div class="flex items-center justify-center relative">
     <input type="text" placeholder="Search..." [spellcheck]="false" #searchInput (keyup)="onSearch(searchInput.value)"
         class="input input-sm w-full p-5 bg-base-200" />
     <button (click)="search(searchInput.value)" class="btn btn-circle btn-sm btn-warning absolute right-1">
