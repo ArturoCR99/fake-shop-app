@@ -1,15 +1,18 @@
-<div class="dropdown dropdown-hover">
-
-    <label tabindex="0" class="btn btn-sm btn-ghost mr-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-        </svg>
-        <span>All Categories</span>
-    </label>
-    <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box ">
-        <ul class="menu h-[400px] min-w-max rounded-box">
+<!-- You can open the modal using ID.showModal() method -->
+<button class="btn btn-sm fixed bottom-5 left-5  md:static" onclick="my_modal_3.showModal()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+    </svg>
+    <span class="block md:hidden">Categories</span>
+</button>
+<dialog id="my_modal_3" class="modal overflow-y-auto">
+    <div class="w-full p-10 bg-base-200">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost fixed right-6 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-lg">Categories</h3>
+        <ul class="menu rounded-box ">
             <li *ngFor="let c of categories">
                 <span class="font-bold btn-disabled">{{c.category | titlecase}}</span>
                 <ul>
@@ -19,5 +22,5 @@
                 </ul>
             </li>
         </ul>
-    </ul>
-</div>
+    </div>
+</dialog>

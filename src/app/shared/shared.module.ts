@@ -9,12 +9,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/header/components/search/search.component';
 import { CategoriesComponent } from './components/header/components/categories/categories.component';
-import { UserComponent } from './components/header/components/user/user.component';
-import { CartComponent } from './components/header/components/cart/cart.component';
 import { LogoComponent } from './components/header/components/logo/logo.component';
+import { UserMenuComponent } from './components/header/components/user-menu/user-menu.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SearchComponent, CategoriesComponent, UserComponent, CartComponent, LogoComponent],
+  declarations: [HeaderComponent, FooterComponent, SearchComponent, CategoriesComponent,  LogoComponent, UserMenuComponent],
   imports: [
     CommonModule,
     RouterModule,

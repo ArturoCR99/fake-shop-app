@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CategoriesService } from '../../services/categories.service';
 import { Category } from '../../interfaces/category';
-import { map } from 'rxjs';
+import { CategoriesService } from './services/categories.service';
 
 @Component({
   selector: 'app-header',

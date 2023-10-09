@@ -20,7 +20,7 @@
     <!--List-->
     <div>
         <div class="grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
-            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 5, currentPage: page }"
+            <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 8, currentPage: page }"
                 [product]="p">
             </app-product-card>
         </div>
