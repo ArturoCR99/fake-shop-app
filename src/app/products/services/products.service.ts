@@ -13,8 +13,8 @@ export class ProductsService {
 
   constructor() { }
 
-  getProductById(){
-    
+  getProductById(id: number): Observable<Product>{
+    return this._http.get<Product>(`https://dummyjson.com/products/${id}`).pipe(delay(400));
   }
 
   getProducts(category: string): Observable<Results>{

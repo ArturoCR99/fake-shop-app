@@ -1,12 +1,13 @@
 <div class="w-full flex min-h-screen">
-    <div class="container mx-auto flex items-center justify-center">
-        <div class="grid grid-cols-2 w-full h-[40rem]">
+    <div class="container mx-auto py-20">
+
+        <div *ngIf="!isLoading" class="grid grid-cols-2 w-full h-full">
 
             <!--Image-->
 
             <div class="flex justify-center items-center p-5 ">
-                <div class="w-full h-full rounded-3xl p-8 bg-white">
-                    <img class="w-full h-full rounded-3xl" src="" alt="">
+                <div class="w-full min-h-full rounded-3xl p-8 bg-white">
+                    <img class="w-full  rounded-3xl object-cover" [src]="product.images[0]" [alt]="product.title">
                 </div>
             </div>
 
@@ -16,29 +17,48 @@
                 <div class="grid grid-rows-2 w-full h-full rounded-3xl p-8 bg-white">
                     <div>
                         <ul>
-                            <li class="mb-2"><h1 class="text-2xl font-bold">Title</h1></li>
-                            <li class="mb-2"><span class="">Brand</span></li>
-                            <li class="mb-2"><span class="font-bold">Price</span></li>
-                            <li class="mb-2">
+                            <li class="mb-3">
+                                <h1 class="text-2xl font-bold">{{product.title | uppercase}}</h1>
+                            </li>
+                            <li class="mb-3"><span class="">{{product.brand}}</span></li>
+                            <li class="mb-3 flex">
+                                <span class="text-xl font-bold">{{product.price | currency}}</span>
+                                <h3 class="text-lg mx-2">
+                                    <span class="badge badge-lg badge-warning">-{{product.discountPercentage | number:'1.0-0'}}%</span>
+                                </h3>
+                            </li>
+                            <li class="mb-3">
                                 <div class="rating">
-                                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        checked />
-                                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                    <input #r1 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                        [checked]="product.rating <= 4.2" />
+                                    <input #r2 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                        [checked]="product.rating > 4.2 && product.rating <= 4.4" />
+                                    <input #r3 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                        [checked]="product.rating > 4.4 && product.rating <= 4.6" />
+                                    <input #r4 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                        [checked]="product.rating > 4.6 && product.rating <= 4.8" />
+                                    <input #r5 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                        [checked]="product.rating > 4.8" />
                                 </div>
                             </li>
-                            <li class="mb-2"><span class="font-bold">Description</span></li>
-                            <li class="mb-2"><span class="font-bold">Stock: </span></li>
+                            <li class="mb-3">
+                                <span class="font-bold">Description</span>
+                                <p>{{product.description}}</p>
+                            </li>
+                            <li class="mb-3"><span class="font-bold">Stock: </span><span>{{product.stock}}</span></li>
                         </ul>
                     </div>
-                    <div class="grid grid-cols-2 items-end">
+                    <div class="grid grid-cols-2 gap-2 items-end">
                         <button class="btn">Add to Cart</button>
-                        <button class="btn btn-primary">Buy now</button>
+                        <button class="btn btn-info">Buy now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!--Loading spinner-->
+<div class="flex justify-center items-center fixed top-0 left-0 w-full h-full" *ngIf="isLoading">
+    <span class="loading loading-spinner loading-lg"></span>
 </div>

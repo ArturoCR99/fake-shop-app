@@ -14,8 +14,8 @@ export class ProductCardComponent{
 
   constructor(){}
 
-  navigate(value: number){
-    this.router.navigateByUrl("/products/detail/" + value)
+  navigate(subCat: string, id: number){
+    this.router.navigateByUrl(`/products/detail/${subCat}/${id}`)
   }
   
 }

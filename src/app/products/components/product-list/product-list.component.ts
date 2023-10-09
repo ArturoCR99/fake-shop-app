@@ -11,8 +11,8 @@ import { finalize, map } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
 
-  private route = inject(ActivatedRoute);
-  private productsService = inject(ProductsService);
+  private _route = inject(ActivatedRoute);
+  private _productsService = inject(ProductsService);
 
   public cat: string = "";
   public subCat: string = "";
@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((param: ParamMap) => {
+    this._route.paramMap.subscribe((param: ParamMap) => {
       this.cat = param.get('cat')!;
       this.subCat = param.get('subcat')!
 
@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
 
   getProductsCategory(value: string) {
     this.isLoading = true;
-    this.productsService.getProducts(value).pipe(
+    this._productsService.getProducts(value).pipe(
       finalize(() => { this.isLoading = false }
       )).subscribe((e) => {
         this.products = e.products;
@@ -51,7 +51,7 @@ export class ProductListComponent implements OnInit {
 
   getProductsSearch(value: string) {
     this.isLoading = true;
-    this.productsService.getSearchProducts(value).pipe(
+    this._productsService.getSearchProducts(value).pipe(
       finalize(() => { this.isLoading = false }
       )).subscribe((e) => {
         this.products = e.products;

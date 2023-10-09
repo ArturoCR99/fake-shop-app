@@ -1,14 +1,14 @@
 <!--Product Card-->
-<div (click)="navigate(product.id)" class="card w-full bg-white hover:shadow-xl transition duration-300 ease-in-out cursor-pointer mx-auto">
-    <figure><img [src]="product.images[0]" class="w-full h-48 object-cover object-center" [alt]="product.title" /></figure>
+<div (click)="navigate(product.category, product.id)" class="card w-full bg-white hover:shadow-xl transition duration-300 ease-in-out cursor-pointer mx-auto">
+    <figure><img [src]="product.thumbnail" class="w-full h-48 object-cover object-center" [alt]="product.title" /></figure>
     <div class="card-body">
         <h2 class="card-title">
             {{product.title | titlecase}}
         </h2>
         <p>{{product.brand}}</p>
         <div class="flex card-actions items-center justify-end">
-            <div class="">{{product.price | currency}}</div>
-            <div class="badge badge-primary">-{{product.discountPercentage | number:'1.0-0'}}%</div>
+            <div class="font-bold">{{product.price | currency}}</div>
+            <div class="badge badge-warning">-{{product.discountPercentage | number:'1.0-0'}}%</div>
         </div>
     </div>
 </div>

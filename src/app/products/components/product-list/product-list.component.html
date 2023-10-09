@@ -20,9 +20,6 @@
     <!--List-->
     <div>
         <div class="grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
-            <div class="flex justify-center items-center col-span-3 h-[200px]" *ngIf="isLoading">
-                <span class="loading loading-spinner loading-lg"></span>
-            </div>
             <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 5, currentPage: page }"
                 [product]="p">
             </app-product-card>
@@ -32,4 +29,9 @@
         </div>
     </div>
     
+</div>
+
+<!--Loading spinner-->
+<div class="flex justify-center items-center fixed top-0 left-0 w-full h-full" *ngIf="isLoading">
+    <span class="loading loading-spinner loading-lg"></span>
 </div>

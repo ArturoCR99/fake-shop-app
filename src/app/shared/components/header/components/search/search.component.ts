@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { SearchService } from '../../../../services/search.service';
 import { Observable, Subscription, finalize, map } from 'rxjs';
 import { Product } from 'src/app/products/interfaces/product';
 import { Router } from '@angular/router';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -50,5 +50,12 @@ export class SearchComponent {
 
   onClickedOutside(e: Event) {
     this.showBox = false;
+  }
+
+  navigate(subCat: string, id: number) {
+    this.router.navigateByUrl(`/products/detail/${subCat}/${id}`).then(() => {
+      window.location.reload();
+    })
+
   }
 }
