@@ -12,7 +12,8 @@
 </div>
 
 <!--Search results-->
-<div *ngIf="showBox" class="absolute top-[4rem] w-full max-w-xl" (clickOutside)="onClickedOutside($event)">
+<div *ngIf="showBox" class="absolute top-[4rem] left-0 right-0 w-full" (clickOutside)="onClickedOutside($event)">
+
     <ul class="menu menu-md bg-base-200 rounded-box">
         <li class="menu-title">Results for {{searchInput.value}}</li>
         <li *ngFor="let r of results$ | async">

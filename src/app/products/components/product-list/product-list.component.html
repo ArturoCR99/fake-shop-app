@@ -4,11 +4,12 @@
     <div class="mb-5">
         <div class="flex items-center justify-between w-full">
             <div>
-                <h1>Total results: {{results}}</h1>
+                <span class="font-bold">Total results:</span>
+                <span> {{results}}</span>
             </div>
             <div class="flex items-center">
-                <label class="font-medium mx-3" for="select">Sort</label>
-                <select (change)="onSort($event)" class="select select-sm w-full max-w-xs">
+                <label class="font-medium mr-2" for="select">Sort by</label>
+                <select (change)="onSort($event)" class="select select-sm select-warning">
                     <option selected>Default</option>
                     <option>highest price</option>
                     <option>lowest price</option>
@@ -19,7 +20,7 @@
 
     <!--List-->
     <div>
-        <div class="grid grid-cols-3 gap-y-10 gap-x-5 mb-5">
+        <div class="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-y-10 gap-x-5 mb-5">
             <app-product-card *ngFor="let p of products | sort:sort | paginate: { itemsPerPage: 8, currentPage: page }"
                 [product]="p">
             </app-product-card>

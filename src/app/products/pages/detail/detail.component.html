@@ -1,58 +1,59 @@
-<div class="w-full flex min-h-screen">
-    <div class="container mx-auto py-20">
+<div class="flex w-full min-h-screen justify-center items-center">
+    <div class="container">
 
-        <div *ngIf="!isLoading" class="grid grid-cols-2 w-full h-full">
-
-            <!--Image-->
-
-            <div class="flex justify-center items-center p-5 ">
-                <div class="w-full min-h-full rounded-3xl p-8 bg-white">
-                    <img class="w-full  rounded-3xl object-cover" [src]="product.images[0]" [alt]="product.title">
+        <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 py-24 px-4 items-center"  *ngIf="!isLoading">
+            
+           <!--Images-->
+            <div>
+                <div class="carousel px-2">
+                    <div class="carousel carousel-center p-4 w-full h-[calc(100vh-12rem)] space-x-4 bg-transparent rounded-box">
+                        <div class="carousel-item" *ngFor="let img of product.images; let i = index">
+                            <img [src]="img" class="rounded-box object-cover" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Data-->
-
-            <div class="flex justify-center items-center p-5 ">
-                <div class="grid grid-rows-2 w-full h-full rounded-3xl p-8 bg-white">
-                    <div>
-                        <ul>
-                            <li class="mb-3">
-                                <h1 class="text-2xl font-bold">{{product.title | uppercase}}</h1>
-                            </li>
-                            <li class="mb-3"><span class="">{{product.brand}}</span></li>
-                            <li class="mb-3 flex">
-                                <span class="text-xl font-bold">{{product.price | currency}}</span>
-                                <h3 class="text-lg mx-2">
-                                    <span class="badge badge-lg badge-warning">-{{product.discountPercentage | number:'1.0-0'}}%</span>
-                                </h3>
-                            </li>
-                            <li class="mb-3">
-                                <div class="rating">
-                                    <input #r1 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        [checked]="product.rating <= 4.2" />
-                                    <input #r2 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        [checked]="product.rating > 4.2 && product.rating <= 4.4" />
-                                    <input #r3 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        [checked]="product.rating > 4.4 && product.rating <= 4.6" />
-                                    <input #r4 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        [checked]="product.rating > 4.6 && product.rating <= 4.8" />
-                                    <input #r5 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
-                                        [checked]="product.rating > 4.8" />
-                                </div>
-                            </li>
-                            <li class="mb-3">
-                                <span class="font-bold">Description</span>
-                                <p>{{product.description}}</p>
-                            </li>
-                            <li class="mb-3"><span class="font-bold">Stock: </span><span>{{product.stock}}</span></li>
-                        </ul>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 items-end">
+            <!--Product details-->
+            <div>
+                <ul class="p-5 rounded-3xl bg-white">
+                    <li class="mb-3">
+                        <h1 class="text-base font-bold sm:text-2xl">{{product.title | uppercase}}</h1>
+                    </li>
+                    <li class="mb-3"><span class="">{{product.brand}}</span></li>
+                    <li class="mb-3 flex">
+                        <span class="text-base font-bold sm:text-xl">{{product.price | currency}}</span>
+                        <h3 class="text-lg mx-2">
+                            <span class="badge badge-lg badge-warning">-{{product.discountPercentage |
+                                number:'1.0-0'}}%</span>
+                        </h3>
+                    </li>
+                    <li class="mb-3">
+                        <div class="rating">
+                            <input #r1 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                [checked]="product.rating <= 4.2" />
+                            <input #r2 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                [checked]="product.rating > 4.2 && product.rating <= 4.4" />
+                            <input #r3 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                [checked]="product.rating > 4.4 && product.rating <= 4.6" />
+                            <input #r4 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                [checked]="product.rating > 4.6 && product.rating <= 4.8" />
+                            <input #r5 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                                [checked]="product.rating > 4.8" />
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <span class="font-bold">Description</span>
+                        <p>{{product.description}}</p>
+                    </li>
+                    <li class="mb-3">
+                        <span class="font-bold">Stock: </span><span>{{product.stock}}</span>
+                    </li>
+                    <li class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <button class="btn">Add to Cart</button>
                         <button class="btn btn-warning">Buy now</button>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

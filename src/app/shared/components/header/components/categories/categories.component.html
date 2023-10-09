@@ -1,16 +1,16 @@
-<!-- You can open the modal using ID.showModal() method -->
-<button class="btn btn-sm btn-ghost" onclick="my_modal_3.showModal()">
+<!-- Categories modal -->
+<button class="btn btn-circle btn-ghost" onclick="my_modal_3.showModal()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
     </svg>
 </button>
-<dialog id="my_modal_3" class="modal overflow-y-auto">
+<dialog id="my_modal_3" class="modal overflow-y-auto bg-slate-700">
     <div class="w-full p-10 bg-base-200">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost fixed right-6 top-2">✕</button>
         </form>
-        <h3 class="font-bold text-lg">Categories</h3>
+        <h3 class="font-bold text-lg text-warning">Categories</h3>
         <ul class="menu rounded-box ">
             <li *ngFor="let c of categories">
                 <span class="font-bold btn-disabled">{{c.category | titlecase}}</span>
