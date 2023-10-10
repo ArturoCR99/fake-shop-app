@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Category } from '../../interfaces/category';
+
 import { CategoriesService } from './services/categories.service';
+import { Category } from '../../interfaces/category';
+
 
 @Component({
   selector: 'app-header',

@@ -1,34 +1,39 @@
-<div class="flex w-full min-h-screen justify-center items-center">
+<div class="flex w-full min-h-screen justify-center">
     <div class="container">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 py-24 px-4 items-center"  *ngIf="!isLoading">
-            
-           <!--Images-->
+        <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 py-24 px-4 h-full" *ngIf="!isLoading">
+
+            <!--Images-->
             <div>
                 <div class="carousel px-2">
-                    <div class="carousel carousel-center p-4 w-full h-[calc(100vh-12rem)] space-x-4 bg-transparent rounded-box">
+                    <div class="carousel carousel-center p-4 w-full  space-x-4 bg-transparent rounded-box">
                         <div class="carousel-item" *ngFor="let img of product.images; let i = index">
-                            <img [src]="img" class="rounded-box object-cover" />
+                            <img [src]="img" class="h-80 rounded-box object-cover" />
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="hidden justify-center gap-12 w-full lg:flex">
+                        <div><span class="text-neutral-content">(Click and move with arrow keys)</span></div>
                     </div>
                 </div>
             </div>
 
             <!--Product details-->
             <div>
-                <ul class="p-5 rounded-3xl bg-white">
-                    <li class="mb-3">
+                <ul class="p-5 rounded-3xl bg-white h-full">
+                    <li class="mb-0">
                         <h1 class="text-base font-bold sm:text-2xl">{{product.title | uppercase}}</h1>
                     </li>
-                    <li class="mb-3"><span class="">{{product.brand}}</span></li>
-                    <li class="mb-3 flex">
+                    <li class="mb-4"><span class="">{{product.brand}}</span></li>
+                    <li class="mb-4 flex">
                         <span class="text-base font-bold sm:text-xl">{{product.price | currency}}</span>
                         <h3 class="text-lg mx-2">
                             <span class="badge badge-lg badge-warning">-{{product.discountPercentage |
                                 number:'1.0-0'}}%</span>
                         </h3>
                     </li>
-                    <li class="mb-3">
+                    <li class="mb-4">
                         <div class="rating">
                             <input #r1 type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
                                 [checked]="product.rating <= 4.2" />
@@ -42,11 +47,11 @@
                                 [checked]="product.rating > 4.8" />
                         </div>
                     </li>
-                    <li class="mb-3">
+                    <li class="mb-4">
                         <span class="font-bold">Description</span>
                         <p>{{product.description}}</p>
                     </li>
-                    <li class="mb-3">
+                    <li class="mb-4">
                         <span class="font-bold">Stock: </span><span>{{product.stock}}</span>
                     </li>
                     <li class="grid grid-cols-1 sm:grid-cols-2 gap-2">

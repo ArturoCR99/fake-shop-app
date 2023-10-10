@@ -13,7 +13,7 @@ import { LogoComponent } from './components/header/components/logo/logo.componen
 import { UserMenuComponent } from './components/header/components/user-menu/user-menu.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SearchComponent, CategoriesComponent,  LogoComponent, UserMenuComponent],
+  declarations: [HeaderComponent, FooterComponent, SearchComponent, CategoriesComponent, LogoComponent, UserMenuComponent],
   imports: [
     CommonModule,
     RouterModule,

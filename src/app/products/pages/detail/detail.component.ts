@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Product } from '../../interfaces/product';
 import { finalize } from 'rxjs';
+
+import { ProductsService } from '../../services/products.service';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +18,7 @@ export class DetailComponent implements OnInit {
   public product!: Product;
   public isLoading: boolean = false;
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
     this._route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -26,7 +27,7 @@ export class DetailComponent implements OnInit {
     })
   }
 
-  getProduct(id: number){
+  getProduct(id: number) {
     this.isLoading = true;
 
     this._productsService.getProductById(id).pipe(finalize(() => this.isLoading = false)).subscribe((res) => {

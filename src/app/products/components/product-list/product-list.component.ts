@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { finalize } from 'rxjs';
+
+import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
-import { finalize, map } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
