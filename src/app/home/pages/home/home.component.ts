@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  @ViewChild("a") a!: ElementRef;
 
+  constructor() {
+    setTimeout(() => {
+      console.log(this.a);
+    }, 2000)
+  }
 }

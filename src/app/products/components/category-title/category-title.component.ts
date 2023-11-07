@@ -9,6 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CategoryTitleComponent {
 
   private route = inject(ActivatedRoute);
+  
   cat!: string;
   subCat!: string;
 

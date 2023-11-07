@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { register } from 'swiper/element/bundle';
 
 import { ProductsRoutingModule } from './products-routing.module';
 
@@ -26,6 +27,12 @@ import { SortPipe } from './pipes/sort.pipe';
     ProductsRoutingModule,
     NgxPaginationModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 
 })
-export class ProductsModule { }
+export class ProductsModule {
+  constructor() {
+    register();
+  }
+}

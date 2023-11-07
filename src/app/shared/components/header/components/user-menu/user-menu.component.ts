@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class UserMenuComponent {
 
+  //Services
+  public _cart = inject(CartService);
+
+  //Props
+  public productsQty$: Observable<number> = this._cart.getProductQty();
+  public subtotal$: Observable<number> = this._cart.getSubtotal();
+
+  constructor() {
+  }
 }
